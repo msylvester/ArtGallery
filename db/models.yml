@@ -1,0 +1,26 @@
+User
+  name: text
+  email: text
+  password: text
+  
+Movie
+  title: text
+  image_url: text
+  mpaa: text
+  price: integer
+  year: integer
+  plot: text
+  director_id: integer
+  runtime: integer
+
+Director
+  name: text
+  photo_url: text
+
+Actor
+  name: text
+
+Role
+  movie_id: integer
+  actor_id: integer
+  character_name: text

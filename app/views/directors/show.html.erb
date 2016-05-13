@@ -1,0 +1,15 @@
+<h1><%= @director.name %></h1>
+
+<div class="details">
+  <%= image_tag @director.photo_url, class: 'pull-right', width: '200px'  %>
+
+  <h3>Filmography</h3>
+
+  <ul>
+    <% movies = Movie.where(director_id: @director.id) %>
+    <% movies.each do |movie| %>
+      <li><%= link_to movie.title, "/movies/#{movie.id}" %></li>
+    <% end %>
+  </ul>
+
+</div>

@@ -1,0 +1,23 @@
+<%= form_for @movie do |form| %>
+
+  <p><%= form.label :title %>
+  <br>
+  <%= form.text_field :title, size: 80, autofocus: true %></p>
+
+  <p><%= form.label :director_id, "Director" %>
+  <br>
+  <%= form.collection_select :director_id, Director.all.order('name'), :id, :name %></p>
+  <p><%= form.label :year %>
+  <br>
+  <%= form.text_field :year %></p>
+
+  <%= form.label :image_url,  "Link to poster URL" %>
+  <br>
+  <%= form.text_field :image_url, size: 80 %>
+
+  <p><%= form.label :plot %>
+  <br>
+  <%= form.text_area :plot, rows: 4, cols: 80 %></p>
+
+  <%= form.submit %>
+<% end %>

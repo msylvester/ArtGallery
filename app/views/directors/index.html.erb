@@ -1,0 +1,5 @@
+<ul>
+<% @directors.each do |director| %>
+  <li><%= link_to director.name, "/directors/#{director.id}" %></li>
+<% end %>
+</ul>

@@ -1,0 +1,9 @@
+<h1><%= @actor.name %></h1>
+
+<h3>Filmography</h3>
+
+<ul>
+  <% @actor.roles.each do |role| %>
+    <li><%= link_to role.movie.title, "/movies/#{role.movie.id}" %></li>
+  <% end %>
+</ul>

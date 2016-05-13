@@ -1,0 +1,9 @@
+<% poster_url = movie ? movie.image_url : 'add_new.png' %>
+<% path = movie ? movie_path(movie.id) : new_movie_path %>
+
+<div class="movie-box">
+  <%= link_to image_tag(poster_url), path %>
+  <% if movie %>
+    <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
+  <% end %>
+</div>

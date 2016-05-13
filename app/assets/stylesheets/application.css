@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  margin: 20px;
+  font-size: 16px;
+}
+
+input, select, textarea {
+  margin-top: 8px;
+}
+.container {
+  margin: 10px auto;
+  padding: 10px;
+}
+
+nav {
+  background: #000;
+  color: white;
+  padding: 8px;
+  font-size: 22px;
+}
+nav form {
+  display: inline;
+}
+nav a {
+  text-decoration: none;
+  border: none;
+  color: white;
+}
+nav ul {
+  padding: 8px;
+  padding-left: 24px;
+  margin: 0px;
+  display: inline;
+}
+nav li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+h1 {
+  border-bottom: solid 2px #AAA;
+  padding-bottom: 12px;
+}
+a {
+  text-decoration: none;
+  border-bottom: dotted 1px #000;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+  /*color: #090;*/
+  border-bottom: solid 1px #090;
+}
+
+li {
+  line-height: 1.7em;
+}
+.movie-box {
+  float: left;
+  width: 240px;
+  height: 400px;
+  padding: 20px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.movie-box img {
+  text-align: center;
+  margin: auto auto;
+  display: block;
+  box-shadow: 8px 8px 8px #999;
+  width: 202px;
+  height: 317px;
+}
+
+input, textarea {
+  font-size: 16px;
+  padding: 8px;
+}
+
+h1 small a {
+  font-size: 14px;
+  font-weight: normal;
+  color: #999;
+  margin-left: 12px;
+}
+
+.pull-right {
+  float: right;
+  margin: 0 0 20px 20px;
+}
+.nav-right {
+  float: right;
+  padding: 0;
+}
+.details {
+  width: 70%;
+}
+select { font-size: 18px; }
+
+form label { margin-right: 12px;}
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 70%;
+}
+table thead th {
+  border-bottom: solid 3px #000;
+  padding: 18px;
+}
+table td {
+  border-bottom: solid 1px #CCC;
+  padding: 18px;
+}
+.movie-selections {
+  width: 70%;
+}
+aside {
+  float: right;
+  text-align: center;
+  background-color: #DDD;
+}
+aside .movie-box {
+  margin: 20px auto;
+  padding: 0;
+}
+
+nav form input {
+  border-radius: 6px;
+  margin: 0;
+  width: 200px;
+}
