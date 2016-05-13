@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '4.2.6'
 gem 'ez'
+gem 'bcrypt'
 
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'

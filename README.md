@@ -7,45 +7,60 @@ To run this Rails app on your laptop:
 1. rake db:migrate rake db:seed
 1. rails server
 
-At this point, you should be able to browse to `http://localhost:3000` and you should see a list of awesome movies.  
-
 The theme of tonight's class is *Security*.
 
-If you really like the topic of application security, see http://guides.rubyonrails.org/security.html
+If you really like the topic of application security and want to learn more, see http://guides.rubyonrails.org/security.html
 
 ## Warmup (10 minutes)
 
 1. Does the search bar work?  If so, how does it work?
-2. Sign in. (Use the Users tab to see the list of accounts).
-2. Notice the navbar now says "Hello, you!"
-2. Change the code to display the user's name instead.
+2. Sign in. (Click the Users navlink to see the list of accounts).
+2. Notice how the navbar now says "Hello, you!"
+2. Change the code to display the user's name instead of the word "you".
 
 
 ## SQL Injection Attacks
 
-These are dangerous. For a review of what I plan to cover in class, [this blog post is pretty good](http://gavinmiller.io/2015/fixing-sql-injection-vulnerabilities/).
+These are dangerous. For a written review of what I plan to cover in class, [this blog post is pretty good](http://gavinmiller.io/2015/fixing-sql-injection-vulnerabilities/).
 
-Here's a general report from 2011 on security concerns for software, especially web apps: http://cwe.mitre.org/top25/archive/2011/2011_cwe_sans_top25.pdf
+Here's an interesting report from 2011 on security concerns for software, especially web apps: http://cwe.mitre.org/top25/archive/2011/2011_cwe_sans_top25.pdf
+
 
 ## Authentication and Authorization
 
-The words are similar, but these are two completely different concepts.
+These two words are similar, but connote two completely different concepts.
 
 I sum it up like this:
 
 * Authentication is *identification*.
 * Authorization is *permission*.
 
-You have to get both of these perfectly right, or your app will be insecure.  The smallest weakness can be a disaster. (Google for hack on Citibank 2011)
+You have to get both of these perfectly right, or your app will be insecure.  The smallest weakness can be a disaster. (Google for the  authorization hack on Citibank in 2011.)
 
 ## Encrypted Cookies with the `session[]` hash
 
 The `session` hash in Rails is a Ruby hash the provides an abstraction over a single cookie.  This cookie:
 
 * Expires at the end of the browser session
-* Encrypts itself automatically on its way to the browser
-* Decrypts itself automatically on its way to the server
+* Can hold a maximum of 4K of data
 * Is automatically managed by the Rails framework
+  * With each request, Rails creates the `session` hash by decrypting cookie headers
+  * With each response, Rails encrypts the `session` hash contents into a Set-Cookie header.
+
+## Using Secure Passwords
+
+Here's my setup recipe:
+
+1. Use the 'bcrypt' in your Gemfile
+2. Add a column named `password_digest` to your User model
+2. Add the line `has_secure_password` to your User model class
+
+Here's how to use it:
+
+* When creating users, assign plain text passwords to the `password` and `password_confirmation` attributes
+* When authenticating a user, call the `.authenticate` method, passing the plain-text password attempt.  It will return `false` if the wrong password was given, or the user object if the password was correct.
+
+
 
 ## Model Validations
 
