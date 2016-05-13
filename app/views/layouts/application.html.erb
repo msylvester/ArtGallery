@@ -20,7 +20,8 @@
     </ul>
     <ul class="nav-right">
       <% if cookies["user_id"].present? %>
-        <li>Hello, you!</li>
+        <% current_user = User.find_by(id: cookies["user_id"]) %>
+        <li>Hello, <%= link_to current_user.name, user_path(current_user) %>!</li>
         <li><%= link_to "Sign Out", logout_path %></li>
       <% else %>
         <li><%= link_to "Sign Up", new_user_path %></li>

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     if params[:keyword].present?
-      @movies = @movies.where("title LIKE '%#{params[:keyword]}%'")
+      @movies = @movies.where("title LIKE ? OR year = ?", "%#{params[:keyword]}%", params[:keyword])
     end
 
     respond_to do |format|
