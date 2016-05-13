@@ -37,6 +37,12 @@ I sum it up like this:
 
 You have to get both of these perfectly right, or your app will be insecure.  The smallest weakness can be a disaster. (Google for the  authorization hack on Citibank in 2011.)
 
+For a web app, authorization can be achieved in one of two ways:
+
+* Put code in the controller to redirect unauthenticated users away from an action
+* Put code in the view to customize the HTML so that it's appropriate for the user
+
+
 ## Encrypted Cookies with the `session[]` hash
 
 The `session` hash in Rails is a Ruby hash the provides an abstraction over a single cookie.  This cookie:
