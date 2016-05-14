@@ -105,10 +105,10 @@ Role.create(movie_id: guardians.id, actor_id: dave.id, character_name: "Drax")
 Role.create(movie_id: guardians.id, actor_id: vin.id, character_name: "Groot")
 Role.create(movie_id: guardians.id, actor_id: bradley.id, character_name: "Rocket")
 
-User.create name: 'Margaret Hamilton', email: 'margaret@example.org', password: 'apollo'
-User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol'
-User.create name: 'Alan Turing', email: 'alan@example.org', password: 'imitationgame'
-User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies'
+User.create name: 'Margaret Hamilton', email: 'margaret@example.org', password: 'apollo', password_confirmation: 'apollo'
+User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol'
+User.create name: 'Alan Turing', email: 'alan@example.org', password: 'imitationgame', password_confirmation: 'imitationgame'
+User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies'
 
 print "There are now #{Movie.count} movies in the database.\n"
 print "There are now #{Director.count} directors in the database.\n"

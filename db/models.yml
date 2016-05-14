@@ -1,8 +1,8 @@
 User
   name: text
   email: text
-  password: text
-  
+  password_digest: text
+
 Movie
   title: text
   image_url: text

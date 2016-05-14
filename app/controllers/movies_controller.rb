@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
     if @movie == nil
       redirect_to movies_url
     end
-    cookies["movie_id"] = @movie.id
+    session["movie_id"] = @movie.id
   end
 
   def new

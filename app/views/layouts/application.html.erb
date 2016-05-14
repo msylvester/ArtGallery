@@ -19,8 +19,8 @@
       <% end %>
     </ul>
     <ul class="nav-right">
-      <% if cookies["user_id"].present? %>
-        <% current_user = User.find_by(id: cookies["user_id"]) %>
+      <% if session["user_id"].present? %>
+        <% current_user = User.find_by(id: session["user_id"]) %>
         <li>Hello, <%= link_to current_user.name, user_path(current_user) %>!</li>
         <li><%= link_to "Sign Out", logout_path %></li>
       <% else %>

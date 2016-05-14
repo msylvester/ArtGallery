@@ -1,8 +1,8 @@
 
 <aside>
   <h3>Recommended For You</h3>
-  <% if cookies["movie_id"].present? %>
-    <%= render Movie.find_by(id: cookies["movie_id"]) %>
+  <% if session["movie_id"].present? %>
+    <%= render Movie.find_by(id: session["movie_id"]) %>
   <% else %>
     <%= render Movie.sample %>
   <% end %>
