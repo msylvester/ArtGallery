@@ -5,4 +5,7 @@ class Movie < ActiveRecord::Base
   has_many :roles  #, foreign_key: :movie_id, class_name: 'Role'
   has_many :actors, :through => :roles
 
+  validates :title, presence: true
+  validates :year, presence: true
+
 end

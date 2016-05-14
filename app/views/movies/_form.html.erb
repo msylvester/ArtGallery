@@ -1,8 +1,10 @@
+<%= @movie.errors.full_messages %>
+
 <%= form_for @movie do |form| %>
 
   <p><%= form.label :title %>
   <br>
-  <%= form.text_field :title, size: 80, autofocus: true %></p>
+  <%= form.text_field :title, size: 80, autofocus: true, required: true %></p>
 
   <p><%= form.label :director_id, "Director" %>
   <br>

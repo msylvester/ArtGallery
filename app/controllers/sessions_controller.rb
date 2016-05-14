@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if user
       if user.authenticate(params[:password])
         session["user_id"] = user.id
+        flash["notice"] = "Welcome back, #{user.name}"
         redirect_to movies_url
         return
       else
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
     else
       # Email is unknown
     end
-    redirect_to movies_url
+    redirect_to login_url, notice: "Invalid email or password"
   end
 
   def destroy
