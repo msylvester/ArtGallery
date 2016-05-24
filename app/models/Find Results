@@ -1,0 +1,138 @@
+Searching 207 files for "Actor"
+
+/Users/michael/finalApp/week7/app/controllers/actors_controller.rb:
+    1: class ArtistController < ApplicationController
+    2  
+    3    def index
+    4:     @artists = Artist.all
+    5    end
+    6  
+    7    def show
+    8:     @artist = Artist.find_by(id: params[:id])
+    9:     if @artist == nil
+   10:       redirect_to "/artist"
+   11      end
+   12    end
+
+/Users/michael/finalApp/week7/app/models/movie.rb:
+    4  
+    5    has_many :roles  #, foreign_key: :movie_id, class_name: 'Role'
+    6:   has_many :artists, :through => :roles
+    7  
+    8    validates :title, presence: true
+
+/Users/michael/finalApp/week7/app/views/actors/index.html.erb:
+    1  <ul>
+    2:   <% @artists.each do |artist| %>
+    3:     <li><%= link_to artists.name, "/artists/#{artist.id}" %></li>
+    4    <% end %>
+    5  </ul>
+
+/Users/michael/finalApp/week7/app/views/actors/show.html.erb:
+    1: <h1><%= @artist.name %></h1>
+    2  
+    3  <h3>Filmography</h3>
+    4  
+    5  <ul>
+    6:   <% @artist.roles.each do |role| %>
+    7      <li><%= link_to role.movie.title, "/movies/#{role.movie.id}" %></li>
+    8    <% end %>
+
+/Users/michael/finalApp/week7/app/views/layouts/application.html.erb:
+   13        <li><%= link_to "Movies", movies_path %></li>
+   14        <li><%= link_to "Directors", directors_path %></li>
+   15:       <li><%= link_to "Artists", artists_path %></li>
+   16        <li><%= link_to "Users", users_path %></li>
+   17        <%= form_tag movies_url, :method => :get do %>
+
+/Users/michael/finalApp/week7/app/views/movies/show.html.erb:
+   19  
+   20  
+   21:   <p><strong>Artists: </strong></p>
+   22  
+   23    <ul>
+   24:     <% @movie.artists.each do |artist| %>
+   25:       <li><%= link_to artist.name, "/artists/#{artists.id}" %></li>
+   26      <% end %>
+   27    </ul>
+
+/Users/michael/finalApp/week7/config/routes.rb:
+    5    resources :movies
+    6    resources :directors
+    7:   resources :artists
+    8    resources :reviews
+    9  
+
+/Users/michael/finalApp/week7/db/models.yml:
+   18    photo_url: text
+   19  
+   20: Artist
+   21    name: text
+   22  
+   23  Role
+   24    movie_id: integer
+   25:   artist_id: integer
+   26    character_name: text
+   27  
+
+/Users/michael/finalApp/week7/db/schema.rb:
+   14  ActiveRecord::Schema.define(version: 0) do
+   15  
+   16:   create_table "artists", force: :cascade do |t|
+   17      t.text "name"
+   18    end
+   ..
+   38    create_table "roles", force: :cascade do |t|
+   39      t.integer "movie_id"
+   40:     t.integer "artist_id"
+   41      t.text    "character_name"
+   42    end
+   43  
+   44:   add_index "roles", ["artist_id"], name: "index_roles_on_artist_id"
+   45    add_index "roles", ["movie_id"], name: "index_roles_on_movie_id"
+   46  
+
+/Users/michael/finalApp/week7/db/seeds.rb:
+    1  Director.delete_all
+    2  Movie.delete_all
+    3: Artist.delete_all
+    4  Role.delete_all
+    5  User.delete_all
+    .
+   80  star_wars = Movie.create(director_id: george.id, title: "Star Wars", image_url: "starwars.jpg", plot: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.", year: 1977, mpaa: "PG", runtime: 121, price: 1499)
+   81  
+   82: ford = Actor.create(name: "Sheppard Fairey")
+   83: fisher = Actor.create(name: "Jeff Koons")
+   84: hanks = Actor.create(name: "Kaws")
+   85: hunt = Actor.create(name: "Banksy")
+   86: pratt = Actor.create(name: "Space Invader")
+   87: zoe = Actor.create(name: "Phil Shaw")
+   88: dave = Actor.create(name: "Erik Sagila")
+   89: vin = Actor.create(name: "Shi Jing")
+   90: bradley = Actor.create(name: "Mu Lei")
+   91  
+   92: Role.create(movie_id: raiders.id, artist_id: ford.id, character_name: "Indiana Jones")
+   93  
+   94: Role.create(movie_id: star_wars.id, artist_id: ford.id, character_name: "Han Solo")
+   95: Role.create(movie_id: star_wars.id, artist_id: fisher.id, character_name: "Princess Leia")
+   96  
+   97: Role.create(movie_id: apollo_13.id, artist_id: hanks.id, character_name: "Jim Lovell")
+   98  
+   99: Role.create(movie_id: cast_away.id, artist_id: hanks.id, character_name: "Chuck Noland")
+  100: Role.create(movie_id: cast_away.id, artist_id: hunt.id, character_name: "Kelly Frears")
+  101  
+  102: Role.create(movie_id: guardians.id, artist_id: pratt.id, character_name: "Peter Quill")
+  103: Role.create(movie_id: guardians.id, artist_id: zoe.id, character_name: "Gamora")
+  104: Role.create(movie_id: guardians.id, artist_id: dave.id, character_name: "Drax")
+  105: Role.create(movie_id: guardians.id, artist_id: vin.id, character_name: "Groot")
+  106: Role.create(movie_id: guardians.id, artist_id: bradley.id, character_name: "Rocket")
+  107  
+  108  User.create name: 'Margaret Hamilton', email: 'margaret@example.org', password: 'apollo', password_confirmation: 'apollo'
+  ...
+  113  print "There are now #{Movie.count} movies in the database.\n"
+  114  print "There are now #{Director.count} directors in the database.\n"
+  115: print "There are now #{Artist.count} artits in the database.\n"
+  116  print "There are now #{User.count} users in the database.\n"
+  117  
+
+53 matches across 10 files

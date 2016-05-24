@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'movies#index'
+  root 'galleries#index'
 
-  resources :movies
-  resources :directors
-  resources :actors
+  resources :galleries
+  resources :artworks
+  resources :artists
   resources :reviews
 
   resources :users

@@ -1,0 +1,22 @@
+<%= @gallery.errors.full_messages %>
+
+<%= form_for @gallery do |form| %>
+
+  <p><%= form.label :title %>
+  <br>
+  <%= form.text_field :title, size: 80, autofocus: true, required: true %></p>
+
+  <p><%= form.label :artwork_id, "Artwork" %>
+  <br>
+  <%= form.collection_select :artwork_id, Artwork.all.order('name'), :id, :name %></p>
+
+  <%= form.label :image_url,  "Link to poster URL" %>
+  <br>
+  <%= form.text_field :image_url, size: 80 %>
+
+  <p><%= form.label :address %>
+  <br>
+  <%= form.text_area :address, rows: 4, cols: 80 %></p>
+
+  <%= form.submit %>
+<% end %>

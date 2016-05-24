@@ -1,28 +1,28 @@
 <h1>
-  <%= @movie.title %>
+  <%= @gallery.title %>
   <small>
-    <%= link_to "Edit This Movie", edit_movie_path(@movie.id) %>
-    <%= link_to "Delete This Movie", movie_path(@movie.id), :method => :delete %>
+    <%= link_to "Edit This Gallery", edit_gallery_path(@gallery.id) %>
+    <%= link_to "Delete This Gallery", gallery_path(@gallery.id), :method => :delete %>
   </small>
 </h1>
 
 <div class="details">
 
-  <p><%= image_tag @movie.image_url, class: 'pull-right' %></p>
+  <p><%= image_tag @gallery.image_url, class: 'pull-right' %></p>
 
-  <p><strong>Directed By: </strong>
-    <%= link_to @movie.director.name, "/directors/#{@movie.director.id}" %>
+  <p><strong>Artwork featured: </strong>
+    <%= link_to @gallery.artwork.name, "/artworks/#{@gallery.artwork.id}" %>
   </p>
 
-  <p><strong>Released:</strong> <%= @movie.year %></p>
-  <p><strong>Plot:</strong> <%= @movie.plot %></p>
+
+  <p><strong>Address:</strong> <%= @gallery.address %></p>
 
 
-  <p><strong>Actors: </strong></p>
+  <p><strong>Artists: </strong></p>
 
   <ul>
-    <% @movie.actors.each do |actor| %>
-      <li><%= link_to actor.name, "/actors/#{actor.id}" %></li>
+    <% @gallery.artists.each do |artist| %>
+      <li><%= link_to artist.name, "/artists/#{artist.id}" %></li>
     <% end %>
   </ul>
 
@@ -30,8 +30,7 @@
 
   <%= form_tag "/reviews", :method => :post do %>
     <%= label_tag :body, "What did you think?" %>
-    <!-- <input type="hidden" name="movie_id" value="<%= @movie.id %>"> -->
-    <%= hidden_field_tag :movie_id, @movie.id %>
+    <%= hidden_field_tag :gallery_id, @gallery.id %>
     
     <br>
     <%= text_area_tag :body, '', rows: 4, cols: 50 %>
@@ -39,7 +38,7 @@
     <%= submit_tag "Add Review" %>
   <% end %>
 
-  <h3>Reviews</h3>
+  <h3>Press</h3>
 
   <p><strong>Jeff said:</strong>
     A pretty cool movie if you like boring nonsense.  The cinematography looked

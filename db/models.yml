@@ -3,24 +3,22 @@ User
   email: text
   password_digest: text
 
-Movie
+Gallery
   title: text
   image_url: text
-  mpaa: text
-  price: integer
-  year: integer
-  plot: text
-  director_id: integer
-  runtime: integer
+  hours: text
+  address: text
+  artwork_id: integer
 
-Director
+
+Artwork
   name: text
   photo_url: text
 
-Actor
+Artist
   name: text
 
-Role
-  movie_id: integer
-  actor_id: integer
+Exhibit
+  gallery_id: integer
+  artist_id: integer
   character_name: text

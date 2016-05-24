@@ -1,0 +1,9 @@
+<h1><%= @artist.name %></h1>
+
+<h3><%= @artist.name %> has been featured at the following galleries:</h3>
+
+<ul>
+  <% @artist.exhibits.each do |exhibit| %>
+    <li><%= link_to exhibit.gallery.title, "/galleries/#{exhibit.gallery.id}" %></li>
+  <% end %>
+</ul>

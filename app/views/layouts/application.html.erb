@@ -10,11 +10,11 @@
 
   <nav>
     <ul>
-      <li><%= link_to "Movies", movies_path %></li>
-      <li><%= link_to "Directors", directors_path %></li>
-      <li><%= link_to "Actors", actors_path %></li>
+      <li><%= link_to "Galleries", galleries_path %></li>
+      <li><%= link_to "Artworks", artworks_path %></li>
+      <li><%= link_to "Artists", artists_path %></li>
       <li><%= link_to "Users", users_path %></li>
-      <%= form_tag movies_url, :method => :get do %>
+      <%= form_tag galleries_url, :method => :get do %>
         <%= text_field_tag :keyword, '', placeholder: 'Search by title...' %>
       <% end %>
     </ul>

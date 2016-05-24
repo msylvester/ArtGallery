@@ -72,7 +72,7 @@ a:hover {
 li {
   line-height: 1.7em;
 }
-.movie-box {
+.gallery-box {
   float: left;
   width: 240px;
   height: 400px;
@@ -81,7 +81,7 @@ li {
   text-align: center;
 }
 
-.movie-box img {
+.gallery-box img {
   text-align: center;
   margin: auto auto;
   display: block;
@@ -130,7 +130,7 @@ table td {
   border-bottom: solid 1px #CCC;
   padding: 18px;
 }
-.movie-selections {
+.gallery-selections {
   width: 70%;
 }
 aside {
@@ -138,7 +138,7 @@ aside {
   text-align: center;
   background-color: #DDD;
 }
-aside .movie-box {
+aside .gallery-box {
   margin: 20px auto;
   padding: 0;
 }

@@ -1,0 +1,5 @@
+<ul>
+<% @artworks.each do |artwork| %>
+  <li><%= link_to artwork.name, "/artworks/#{artwork.id}" %></li>
+<% end %>
+</ul>

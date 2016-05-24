@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.authenticate(params[:password])
         session["user_id"] = user.id
         flash["notice"] = "Welcome back, #{user.name}"
-        redirect_to movies_url
+        redirect_to galleries_url
         return
       else
         # Email is ok, but password was wrong
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to movies_url
+    redirect_to galleries_url
   end
 
 end

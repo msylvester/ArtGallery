@@ -1,0 +1,14 @@
+
+<aside>
+  <h3>Recommended For You</h3>
+  <% if session["movie_id"].present? %>
+    <%= render Gallery.find_by(id: session["gallery_id"]) %>
+  <% else %>
+    <%= render Gallery.sample %>
+  <% end %>
+</aside>
+
+<div class="gallery-selections">
+  <%= render 'gallery', gallery: nil %>
+  <%= render @galleries %>
+</div>

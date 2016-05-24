@@ -13,36 +13,33 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "actors", force: :cascade do |t|
+  create_table "artists", force: :cascade do |t|
     t.text "name"
   end
 
-  create_table "directors", force: :cascade do |t|
+  create_table "artworks", force: :cascade do |t|
     t.text "name"
     t.text "photo_url"
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.text    "title"
-    t.integer "year"
-    t.text    "plot"
-    t.text    "image_url"
-    t.integer "director_id"
-    t.text    "mpaa"
-    t.integer "price"
-    t.integer "runtime"
-  end
-
-  add_index "movies", ["director_id"], name: "index_movies_on_director_id"
-
-  create_table "roles", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "actor_id"
+  create_table "exhibits", force: :cascade do |t|
+    t.integer "artist_id"
     t.text    "character_name"
+    t.integer "gallery_id"
   end
 
-  add_index "roles", ["actor_id"], name: "index_roles_on_actor_id"
-  add_index "roles", ["movie_id"], name: "index_roles_on_movie_id"
+  add_index "exhibits", ["artist_id"], name: "index_exhibits_on_artist_id"
+  add_index "exhibits", ["gallery_id"], name: "index_exhibits_on_gallery_id"
+
+  create_table "galleries", force: :cascade do |t|
+    t.text    "title"
+    t.text    "image_url"
+    t.integer "artwork_id"
+    t.text    "hours"
+    t.text    "address"
+  end
+
+  add_index "galleries", ["artwork_id"], name: "index_galleries_on_artwork_id"
 
   create_table "users", force: :cascade do |t|
     t.text "name"

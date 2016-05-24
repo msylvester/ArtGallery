@@ -1,0 +1,15 @@
+<h1><%= @artwork.name %></h1>
+
+<div class="details">
+  <%= image_tag @artwork.photo_url, class: 'pull-right', width: '200px'  %>
+
+  <h3>Has been featured at:</h3>
+
+  <ul>
+    <% galleries = Gallery.where(artwork_id: @artwork.id) %>
+    <% galleries.each do |gallery| %>
+      <li><%= link_to gallery.title, "/galleries/#{gallery.id}" %></li>
+    <% end %>
+  </ul>
+
+</div>

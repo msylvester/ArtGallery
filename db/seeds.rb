@@ -1,116 +1,86 @@
-Director.delete_all
-Movie.delete_all
-Actor.delete_all
-Role.delete_all
+Gallery.delete_all
+Artist.delete_all
+Exhibit.delete_all
 User.delete_all
+Artwork.delete_all
 
-george = Director.create(:name => "George Lucas", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTA0Mjc0NzExNzBeQTJeQWpwZ15BbWU3MDEzMzQ3MDI@._V1_UY317_CR0,0,214,317_AL_.jpg")
-ron = Director.create(:name => "Ron Howard", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTkzMDczMjUxNF5BMl5BanBnXkFtZTcwODY1Njk5Mg@@._V1_UX214_CR0,0,214,317_AL_.jpg")
-steve = Director.create(:name => "Steven Spielberg", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTY1NjAzNzE1MV5BMl5BanBnXkFtZTYwNTk0ODc0._V1_UX214_CR0,0,214,317_AL_.jpg")
-robert = Director.create(:name => "Robert Zemeckis", :photo_url => "http://ia.media-imdb.com/images/M/MV5BMTgyMTMzMDUyNl5BMl5BanBnXkFtZTcwODA0ODMyMw@@._V1_UX214_CR0,0,214,317_AL_.jpg")
-james = Director.create(:name => "James Gunn", :photo_url => 'http://ia.media-imdb.com/images/M/MV5BMzgwMDA1NDc0M15BMl5BanBnXkFtZTgwMDA2MTMzNTE@._V1_SX1024_CR0,0,1024,1516_AL_.jpg')
 
-raiders = Movie.new
-raiders.title = "Raiders of the Lost Ark"
-raiders.director_id = steve.id
-raiders.image_url = "raiders.jpg"
-raiders.plot = "Archaeologist and adventurer Indiana Jones is hired by the US government to find the Ark of the Covenant before the Nazis."
-raiders.year = 1981
-raiders.mpaa = "PG"
-raiders.runtime = 115
-raiders.price = 1299
+george = Artwork.create(:name => "No Title (Talking to myself)", :photo_url => "https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=376&height=300&quality=95&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FBD47peHtLMDWHzDI1axYHQ%2Ftall.jpg")
+ron = Artwork.create(:name => "Universal Personhood", :photo_url => "https://d32dm0rphc51dk.cloudfront.net/TDuXcnfMUFwzk2EIH4JP4Q/larger.jpg")
+steve = Artwork.create(:name => "The Key to Making Great Art is all in the Composition", :photo_url => "https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=300&height=300&quality=95&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2Ff9_pLsTq_pAZnYTdXnw_cQ%2Flarge.jpg")
+robert = Artwork.create(:name => "Untitled", :photo_url => "https://d32dm0rphc51dk.cloudfront.net/wGwQhFYwbBH-flCPEKcrHw/larger.jpg")
+james = Artwork.create(:name => "No title", :photo_url => 'https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=448&height=300&quality=95&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FA000UdS6oWo0XKJ7AtPCWQ%2Flarge.jpg')
+
+raiders = Gallery.new
+raiders.title = "Zhou B. Artcenter"
+raiders.artwork_id = steve.id
+raiders.image_url = "zhou.jpg"
+raiders.address = "1029 W 35th St, Chicago, IL 60609"
+raiders.hours = "Hours Vary"
 raiders.save
 
-apollo_13 = Movie.new
-apollo_13.title = "Apollo 13"
-apollo_13.director_id = ron.id
-apollo_13.image_url = "apollo13.jpg"
-apollo_13.plot = "NASA must devise a strategy to return Apollo 13 to Earth safely after the spacecraft undergoes massive internal damage putting the lives of the three astronauts on board in jeopardy."
-apollo_13.year = 1995
-apollo_13.mpaa = "PG"
-apollo_13.runtime = 140
-apollo_13.price = 1299
+star_wars = Gallery.new
+star_wars.title = "tHinkspace"
+star_wars.artwork_id = steve.id
+star_wars.image_url = "thinkspace.jpg"
+star_wars.address = "1000 Howard St, San Francisco, CA 94103"
+star_wars.hours = "Wed-Sat  12pm - 6:30 pm "
+star_wars.save
+
+apollo_13 = Gallery.new
+apollo_13.title = "Anno Domini"
+apollo_13.artwork_id = steve.id
+apollo_13.image_url = "anno.jpg"
+apollo_13.address = "366 So. First Street, San Jose, CA 95113"
+apollo_13.hours = "Tu-Fri 12pm - 7pm"
 apollo_13.save
 
-cast_away = Movie.new
-cast_away.title = "Cast Away"
-cast_away.director_id = robert.id
-cast_away.image_url = "castaway.jpg"
-cast_away.plot = "A FedEx executive must transform himself physically and emotionally to survive a crash landing on a deserted island."
-cast_away.year = 2000
-cast_away.mpaa = "PG-13"
-cast_away.runtime = 143
-cast_away.price = 1099
+
+cast_away = Gallery.new
+cast_away.title = "First Ammendmant"
+cast_away.artwork_id = steve.id
+cast_away.image_url = "sleepless.jpg"
+cast_away.address = "6009 Washington Blvd. | Culver City, CA 90232"
+cast_away.hours = "PG"
 cast_away.save
 
-jurassic = Movie.new
-jurassic.title = "Jurassic Park"
-jurassic.director_id = steve.id
-jurassic.image_url = "jurassic.jpg"
-jurassic.plot = "In Steven Spielberg's massive blockbuster, paleontologists Alan Grant (Sam Neill) and Ellie Sattler (Laura Dern) and mathematician Ian Malcolm (Jeff Goldblum) are among a select group chosen to tour an island theme park populated by dinosaurs created from prehistoric DNA. While the park's mastermind, billionaire John Hammond (Richard Attenborough), assures everyone that the facility is safe, they find out otherwise when various ferocious predators break free and go on the hunt."
-jurassic.year = 1993
-jurassic.mpaa = "PG-13"
-jurassic.runtime = 127
-jurassic.price = 1999
-jurassic.save
 
-mind = Movie.new
-mind.title = "A Beautiful Mind"
-mind.director_id = ron.id
-mind.image_url = "mind.jpg"
-mind.plot = "A human drama inspired by events in the life of John Forbes Nash Jr., and in part based on the biography \"A Beautiful Mind\" by Sylvia Nasar. From the heights of notoriety to the depths of depravity, John Forbes Nash Jr. experienced it all. A mathematical genius, he made an astonishing discovery early in his career and stood on the brink of international acclaim. But the handsome and arrogant Nash soon found himself on a painful and harrowing journey of self-discovery."
-mind.year = 2001
-mind.mpaa = "PG-13"
-mind.runtime = 140
-mind.price = 1499
-mind.save
 
-lincoln = Movie.new
-lincoln.title = "Lincoln"
-lincoln.director_id = steve.id
-lincoln.image_url = "lincoln.jpg"
-lincoln.plot = "With the nation embroiled in still another year with the high death count of Civil War, President Abraham Lincoln (Daniel Day-Lewis) brings the full measure of his passion, humanity and political skill to what would become his defining legacy: to end the war and permanently abolish slavery through the 13th Amendment. Having great courage, acumen and moral fortitude, Lincoln pushes forward to compel the nation, and those in government who oppose him, to aim toward a greater good for all mankind."
-lincoln.year = 2012
-lincoln.mpaa = "PG-13"
-lincoln.runtime = 170
-lincoln.price = 1863
-lincoln.save
+guardians = Gallery.create(artwork_id: james.id, title: "111 Mina Gallery", address: "" , image_url: "mina.jpg", hours: "Mon-Fri 7:00 am - 5:00 pm")
+star_wars = Gallery.create(artwork_id: james.id, title: "Unleashed Art Gallery", image_url: "last.jpg", address: "2744 Broadway St., Redwood City, CA", hours: "Tues-Sat 11am - 6pm")
 
-guardians = Movie.create(director_id: james.id, title: "Guardians of the Galaxy", image_url: "guardians.jpg", plot: "A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.", year: 2014, mpaa: "PG-13", runtime: 121, price: 1499)
-star_wars = Movie.create(director_id: george.id, title: "Star Wars", image_url: "starwars.jpg", plot: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.", year: 1977, mpaa: "PG", runtime: 121, price: 1499)
+ford = Artist.create(name: "Phil Shaw")
+fisher = Artist.create(name: "Shepard Fairey")
+hanks = Artist.create(name: "Banksy")
+hunt = Artist.create(name: "Raymond Pettibon")
+pratt = Artist.create(name: "Erik Saglia")
+zoe = Artist.create(name: "Jia Aili")
+dave = Artist.create(name: "Shi Jing")
+vin = Artist.create(name: "Ren Hang")
+bradley = Artist.create(name: "Heinz Mack")
 
-ford = Actor.create(name: "Harrison Ford")
-fisher = Actor.create(name: "Carrie Fisher")
-hanks = Actor.create(name: "Tom Hanks")
-hunt = Actor.create(name: "Helen Hunt")
-pratt = Actor.create(name: "Chris Pratt")
-zoe = Actor.create(name: "Zoe Saldana")
-dave = Actor.create(name: "Dave Bautista")
-vin = Actor.create(name: "Vin Diesel")
-bradley = Actor.create(name: "Bradley Cooper")
+Exhibit.create(gallery_id: raiders.id, artist_id: ford.id, character_name: "Indiana Jones")
 
-Role.create(movie_id: raiders.id, actor_id: ford.id, character_name: "Indiana Jones")
+Exhibit.create(gallery_id: star_wars.id, artist_id: ford.id, character_name: "Han Solo")
+Exhibit.create(gallery_id: star_wars.id, artist_id: fisher.id, character_name: "Princess Leia")
 
-Role.create(movie_id: star_wars.id, actor_id: ford.id, character_name: "Han Solo")
-Role.create(movie_id: star_wars.id, actor_id: fisher.id, character_name: "Princess Leia")
+Exhibit.create(gallery_id: apollo_13.id, artist_id: hanks.id, character_name: "Jim Lovell")
 
-Role.create(movie_id: apollo_13.id, actor_id: hanks.id, character_name: "Jim Lovell")
+Exhibit.create(gallery_id: cast_away.id, artist_id: hanks.id, character_name: "Chuck Noland")
+Exhibit.create(gallery_id: cast_away.id, artist_id: hunt.id, character_name: "Kelly Frears")
 
-Role.create(movie_id: cast_away.id, actor_id: hanks.id, character_name: "Chuck Noland")
-Role.create(movie_id: cast_away.id, actor_id: hunt.id, character_name: "Kelly Frears")
-
-Role.create(movie_id: guardians.id, actor_id: pratt.id, character_name: "Peter Quill")
-Role.create(movie_id: guardians.id, actor_id: zoe.id, character_name: "Gamora")
-Role.create(movie_id: guardians.id, actor_id: dave.id, character_name: "Drax")
-Role.create(movie_id: guardians.id, actor_id: vin.id, character_name: "Groot")
-Role.create(movie_id: guardians.id, actor_id: bradley.id, character_name: "Rocket")
+Exhibit.create(gallery_id: guardians.id, artist_id: pratt.id, character_name: "Peter Quill")
+Exhibit.create(gallery_id: guardians.id, artist_id: zoe.id, character_name: "Gamora")
+Exhibit.create(gallery_id: guardians.id, artist_id: dave.id, character_name: "Drax")
+Exhibit.create(gallery_id: guardians.id, artist_id: vin.id, character_name: "Groot")
+Exhibit.create(gallery_id: guardians.id, artist_id: bradley.id, character_name: "Rocket")
 
 User.create name: 'Margaret Hamilton', email: 'margaret@example.org', password: 'apollo', password_confirmation: 'apollo'
 User.create name: 'Grace Hopper', email: 'grace@example.org', password: 'cobol', password_confirmation: 'cobol'
 User.create name: 'Alan Turing', email: 'alan@example.org', password: 'imitationgame', password_confirmation: 'imitationgame'
 User.create name: 'Cookie Monster', email: 'cookie@example.org', password: 'cookies', password_confirmation: 'cookies'
 
-print "There are now #{Movie.count} movies in the database.\n"
-print "There are now #{Director.count} directors in the database.\n"
-print "There are now #{Actor.count} actors in the database.\n"
+print "There are now #{Gallery.count} galleries in the database.\n"
+print "There are now #{Artwork.count} artworks in the database.\n"
+print "There are now #{Artist.count} artists in the database.\n"
 print "There are now #{User.count} users in the database.\n"

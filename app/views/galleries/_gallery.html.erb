@@ -1,0 +1,9 @@
+<% poster_url = gallery ? gallery.image_url : 'add_new.png' %>
+<% path = gallery ? gallery_path(gallery.id) : new_gallery_path %>
+
+<div class="gallery-box">
+  <%= link_to image_tag(poster_url), path %>
+  <% if gallery %>
+    <h3><%= link_to gallery.title, gallery_path(gallery.id) %></h3>
+  <% end %>
+</div>
