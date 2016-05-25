@@ -74,7 +74,7 @@ li {
 }
 .gallery-box {
   float: left;
-  width: 240px;
+  width: 400px;
   height: 400px;
   padding: 20px;
   padding-left: 0px;
@@ -86,8 +86,8 @@ li {
   margin: auto auto;
   display: block;
   box-shadow: 8px 8px 8px #999;
-  width: 202px;
-  height: 317px;
+  width: 317px;
+  height: 202px;
 }
 
 input, textarea {
@@ -139,7 +139,7 @@ aside {
   background-color: #DDD;
 }
 aside .gallery-box {
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 0;
 }
 

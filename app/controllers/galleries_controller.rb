@@ -5,7 +5,8 @@ class GalleriesController < ApplicationController
     puts("hello")
     puts @galleries.count
     if params[:keyword].present?
-      @galleries = @galleries.where("title LIKE ? OR year = ?", "%#{params[:keyword]}%", params[:keyword])
+      @galleries = @galleries.where("title LIKE ?", "%#{params[:keyword]}%", params[:keyword])
+      #@galleries = @galleries.where("title LIKE ? OR year = ?", "%#{params[:keyword]}%", params[:keyword])
     end
 
     respond_to do |format|
