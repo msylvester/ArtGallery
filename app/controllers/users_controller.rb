@@ -23,11 +23,13 @@ class UsersController < ApplicationController
     user.email = params[:user][:email]
     user.password = params[:user][:password]
     
+    toName = user.email
+
     #send an email
     mail = Mail.new do
         from    'msylvest55@gmail.com'
-        to      params[:user][:email]
-        subject 'Thank you for joining  '
+        to      'msylvest55@gmail.com '
+        subject 'Thank you for joining'
         body    'welcome to the spot'
     end
   

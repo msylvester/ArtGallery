@@ -146,6 +146,7 @@ DEPENDENCIES
   ez
   jbuilder (~> 2.0)
   jquery-rails
+  mail (>= 2.6.4)
   pg
   quiet_assets
   rails (= 4.2.6)
