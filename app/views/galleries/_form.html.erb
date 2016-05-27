@@ -10,7 +10,7 @@
   <br>
   <%= form.collection_select :artwork_id, Artwork.all.order('name'), :id, :name %></p>
 
-  <%= form.label :image_url,  "Link to poster URL" %>
+  <%= form.label :image_url,  "Link to gallery Image" %>
   <br>
   <%= form.text_field :image_url, size: 80 %>
 

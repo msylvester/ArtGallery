@@ -26,7 +26,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new
     @gallery.title = params[:gallery][:title]
-    @gallery.plot = params[:gallery][:address]
+    @gallery.address = params[:gallery][:address]
     @gallery.image_url = params[:gallery][:image_url]
     @gallery.artwork_id = params[:gallery][:artwork_id]
 
