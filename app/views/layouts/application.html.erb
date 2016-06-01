@@ -14,9 +14,9 @@
       <li><%= link_to "Artworks", artworks_path %></li>
       <li><%= link_to "Artists", artists_path %></li>
       <li><%= link_to "Users", users_path %></li>
-      <%= form_tag galleries_url, :method => :get do %>
+    <!--   <%= form_tag galleries_url, :method => :get do %>
         <%= text_field_tag :keyword, '', placeholder: 'Search by title...' %>
-      <% end %>
+      <% end %> -->
     </ul>
     <ul class="nav-right">
       <% if session["user_id"].present? %>
