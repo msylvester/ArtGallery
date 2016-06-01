@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "exhibits", force: :cascade do |t|
+    t.integer "gallery_id"
     t.integer "artist_id"
     t.text    "character_name"
-    t.integer "gallery_id"
   end
 
   add_index "exhibits", ["artist_id"], name: "index_exhibits_on_artist_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "galleries", force: :cascade do |t|
     t.text    "title"
     t.text    "image_url"
-    t.integer "artwork_id"
     t.text    "hours"
     t.text    "address"
+    t.integer "artwork_id"
   end
 
   add_index "galleries", ["artwork_id"], name: "index_galleries_on_artwork_id"
