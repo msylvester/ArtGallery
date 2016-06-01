@@ -1,5 +1,3 @@
-require 'mail'
-
 class UsersController < ApplicationController
 
   def show
@@ -22,16 +20,8 @@ class UsersController < ApplicationController
     user.name = params[:user][:name]
     user.email = params[:user][:email]
     user.password = params[:user][:password]
-    
-    # toName = user.email
-
-    # #send an email
-    # mail = Mail.new do
-    #     from    'msylvest55@gmail.com'
-    #     to      'msylvest55@gmail.com '
-    #     subject 'Thank you for joining'
-    #     body    'welcome to the spot'
-    # end
+    user.save
+    redirect_to galleries_url
   
   end
 

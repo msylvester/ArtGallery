@@ -28,7 +28,7 @@ input, select, textarea {
 }
 
 nav {
-  background: #000;
+  background: #0000FF;
   color: white;
   padding: 8px;
   font-size: 22px;
@@ -133,7 +133,7 @@ table td {
 .gallery-selections {
   width: 70%;
 }
-aside {
+/*aside {
   float: right;
   text-align: center;
   background-color: #DDD;
@@ -142,7 +142,7 @@ aside .gallery-box {
   margin: 40px auto;
   padding: 0;
 }
-
+*/
 nav form input {
   border-radius: 6px;
   margin: 0;

@@ -25,34 +25,6 @@
       <li><%= link_to artist.name, "/artists/#{artist.id}" %></li>
     <% end %>
   </ul>
-<!-- 
- <h3>Press Release:</h3>
 
-  <%= form_tag "/reviews", :method => :post do %>
-    <%= label_tag :body, "What did you think?" %>
-    <%= hidden_field_tag :gallery_id, @gallery.id %>
-    
-    <br>
-    <%= text_area_tag :body, '', rows: 4, cols: 50 %>
-    <br>
-    <%= submit_tag "Add Review" %>
-  <% end %>
-
-  <h3>Press</h3>
-
-  <p><strong>Jeff said:</strong>
-    A pretty cool movie if you like boring nonsense.  The cinematography looked
-    like a child made it, and the acting was amatuerish.  Other than, it was
-    great!
-  </p>
-
-  <p><strong>Borja said:</strong>
-    A great example of computer science and society at large!
-  </p>
-
-  <p><strong>Neil said:</strong>
-    Gravitons, photons, and neutrons, oh my!  Putting aside the obvious problems
-    with the scientific basis of the fiction in this movie, it wasn't too bad.
-  </p> -->
 </div>
  
